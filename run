@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cmd="mvn exec:java -Dexec.args="\"$@\"
+
+eval $cmd
