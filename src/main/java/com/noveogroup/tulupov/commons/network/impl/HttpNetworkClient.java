@@ -4,7 +4,9 @@ import com.noveogroup.tulupov.commons.network.NetworkClient;
 import com.noveogroup.tulupov.commons.network.exception.NetworkException;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.params.*;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 
@@ -15,9 +17,16 @@ import java.io.IOException;
  * Http network client.
  */
 public class HttpNetworkClient implements NetworkClient {
+    private static final int CONNECTION_TIMEOUT = 10 * 1000;
+
     @Override
     public String get(final String url) throws NetworkException {
         final HttpClient httpClient = new HttpClient();
+
+        final HttpClientParams params = httpClient.getParams();
+        params.setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, CONNECTION_TIMEOUT);
+        params.setIntParameter(HttpConnectionParams.SO_TIMEOUT, CONNECTION_TIMEOUT);
+
         final GetMethod getMethod = new GetMethod(url);
 
         try {
@@ -30,7 +39,7 @@ public class HttpNetworkClient implements NetworkClient {
             } else {
                 throw new NetworkException("Bad status code=" + statusCode);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new NetworkException("Cannot download the data", e);
         }
     }
