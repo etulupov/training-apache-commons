@@ -13,8 +13,6 @@ public final class ConfigurationManager {
     private static final String CONFIG_FILE = "config.properties";
     private static final Log LOGGER = LogFactory.getLog(ConfigurationManager.class);
 
-    private static ConfigurationManager instance;
-
     private DataConfiguration configuration;
 
     private ConfigurationManager() {
@@ -26,18 +24,22 @@ public final class ConfigurationManager {
     }
 
     public static ConfigurationManager getInstance() {
-        if (instance == null) {
-            instance = new ConfigurationManager();
-        }
-
-        return instance;
+        return ConfigurationManagerHolder.INSTANCE;
     }
 
-    public <T> T get(final Class<T> clazz, final String key) {
+    public synchronized <T> T get(final Class<T> clazz, final String key) {
         if (configuration != null) {
             return configuration.get(clazz, key);
         }
 
         return null;
+    }
+
+
+    /**
+     * Instance holder.
+     */
+    private static class ConfigurationManagerHolder {
+        public static final ConfigurationManager INSTANCE = new ConfigurationManager();
     }
 }

@@ -4,14 +4,13 @@ import com.noveogroup.tulupov.commons.network.NetworkClient;
 import com.noveogroup.tulupov.commons.network.exception.NetworkException;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.params.*;
+import org.apache.commons.httpclient.params.HttpClientParams;
+import org.apache.commons.httpclient.params.HttpConnectionParams;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedInputStream;
-import java.io.IOException;
 
 /**
  * Http network client.

@@ -39,7 +39,7 @@ public class RssChannel implements Comparable<RssChannel> {
     @BeanPropertySetter(pattern = "rss/channel/language")
     private String language;
 
-    @SuppressWarnings({"MismatchedQueryAndUpdateOfCollection", "CanBeFinal"})
+    @SuppressWarnings({ "MismatchedQueryAndUpdateOfCollection", "CanBeFinal" })
     @Getter
     @Setter
     private List<Item> items = new ArrayList<Item>();

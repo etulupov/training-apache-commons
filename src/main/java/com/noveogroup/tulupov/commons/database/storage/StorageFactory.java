@@ -8,20 +8,26 @@ import com.noveogroup.tulupov.commons.database.storage.impl.StorageImpl;
  * Storage factory.
  */
 public final class StorageFactory {
-    private static Storage linkStorage;
 
     private StorageFactory() {
         throw new UnsupportedOperationException();
     }
 
     public static Storage getLinkStorage() {
-        if (linkStorage == null) {
+        return StorageHolder.INSTANCE;
+    }
+
+    /**
+     * Instance holder.
+     */
+    private static class StorageHolder {
+        public static final Storage INSTANCE;
+
+        static {
             final String path = ConfigurationManager.getInstance()
                     .get(String.class, ConfigurationConstants.STORAGE_LINK);
 
-            linkStorage = new StorageImpl(path);
+            INSTANCE = new StorageImpl(path);
         }
-
-        return linkStorage;
     }
 }

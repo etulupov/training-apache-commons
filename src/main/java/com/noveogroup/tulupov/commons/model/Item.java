@@ -12,7 +12,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 /**
  * Item model.
  */
-@SuppressWarnings({"UnusedDeclaration", "WeakerAccess"})
+@SuppressWarnings({ "UnusedDeclaration", "WeakerAccess" })
 @ObjectCreate(pattern = "rss/channel/item")
 public class Item implements Comparable<Item> {
     @Getter
