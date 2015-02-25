@@ -29,11 +29,15 @@ public final class ConfigurationManager {
     }
 
     public synchronized <T> T get(final Class<T> clazz, final String key) {
+        return get(clazz, key, null);
+    }
+
+    public synchronized <T> T get(final Class<T> clazz, final String key, final T defaultValue) {
         if (configuration != null) {
             return configuration.get(clazz, key);
         }
 
-        return null;
+        return defaultValue;
     }
 
 

@@ -14,10 +14,10 @@ import java.util.Set;
 /**
  * Storage implementation.
  */
-public class StorageImpl implements Storage {
+public class PlainStorageImpl implements Storage {
     private final File file;
 
-    public StorageImpl(final String path) {
+    public PlainStorageImpl(final String path) {
         this.file = new File(path);
     }
 
