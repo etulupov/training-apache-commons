@@ -16,7 +16,7 @@ import java.io.BufferedInputStream;
  * Http network client.
  */
 public class HttpNetworkClient implements NetworkClient {
-    private static final int CONNECTION_TIMEOUT = 10 * 1000;
+    private static final int CONNECTION_TIMEOUT = 5 * 1000;
 
     @Override
     public String get(final String url) throws NetworkException {

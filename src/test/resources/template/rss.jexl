@@ -1,0 +1,10 @@
+writer:println("RSS feed");
+writer:println(rss.title);
+writer:println();
+
+for(item : rss.items) {
+    writer:println(item.link);
+    writer:println(item.title);
+    writer:println();
+}
+
