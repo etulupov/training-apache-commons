@@ -7,6 +7,7 @@ import com.noveogroup.tulupov.commons.database.storage.impl.StorageImpl;
 /**
  * Storage factory.
  */
+@SuppressWarnings("SameReturnValue")
 public final class StorageFactory {
 
     private StorageFactory() {

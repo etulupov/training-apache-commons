@@ -9,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * Configuration manager.
  */
+@SuppressWarnings("SameReturnValue")
 public final class ConfigurationManager {
     private static final String CONFIG_FILE = "config.properties";
     private static final Log LOGGER = LogFactory.getLog(ConfigurationManager.class);
