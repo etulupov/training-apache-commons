@@ -13,6 +13,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 /**
  * Link model.
  */
+@SuppressWarnings("NullableProblems")
 @Builder
 @AllArgsConstructor(suppressConstructorProperties = true)
 @NoArgsConstructor

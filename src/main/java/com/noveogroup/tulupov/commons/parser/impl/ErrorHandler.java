@@ -6,7 +6,7 @@ import org.xml.sax.SAXParseException;
 /**
  * Error handler.
  */
-public class ErrorHandler implements org.xml.sax.ErrorHandler {
+class ErrorHandler implements org.xml.sax.ErrorHandler {
     @Override
     public void warning(final SAXParseException e) throws SAXException {
         throw e;

@@ -11,6 +11,7 @@ import java.util.Map;
 /**
  * Jelly template engine.
  */
+@SuppressWarnings("UnusedDeclaration")
 public class JellyTemplateEngine implements TemplateEngine {
     private static final String TEMPLATE = "template/rss.xml";
 

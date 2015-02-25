@@ -8,7 +8,6 @@ import java.io.File;
  * File utils.
  */
 public final class FileUtils {
-    private static final String DOT = ".";
     private static final String HTML_EXTENSION = "html";
 
     private FileUtils() {

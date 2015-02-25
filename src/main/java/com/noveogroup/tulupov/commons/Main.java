@@ -12,6 +12,7 @@ import com.noveogroup.tulupov.commons.manager.FeedManagerFactory;
 /**
  * RSS client application.
  */
+@SuppressWarnings("WeakerAccess")
 public class Main {
     /**
      * Main method.

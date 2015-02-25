@@ -12,6 +12,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 /**
  * Item model.
  */
+@SuppressWarnings({"UnusedDeclaration", "WeakerAccess"})
 @ObjectCreate(pattern = "rss/channel/item")
 public class Item implements Comparable<Item> {
     @Getter
@@ -29,6 +30,7 @@ public class Item implements Comparable<Item> {
     @BeanPropertySetter(pattern = "rss/channel/item/description")
     private String description;
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(final Item obj) {
         return CompareToBuilder.reflectionCompare(this, obj);

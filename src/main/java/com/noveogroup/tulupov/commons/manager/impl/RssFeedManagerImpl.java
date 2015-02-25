@@ -83,7 +83,6 @@ public class RssFeedManagerImpl implements FeedManager {
                 templateEngine.generate(context, writer);
             } catch (Exception e) {
                 LOGGER.error("Cannot generate file from " + link, e);
-                continue;
             } finally {
                 IOUtils.closeQuietly(writer);
             }

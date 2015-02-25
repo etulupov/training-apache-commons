@@ -6,6 +6,7 @@ import com.noveogroup.tulupov.commons.parser.exception.RssParseException;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
@@ -15,7 +16,8 @@ import static org.junit.Assert.assertNotNull;
  * DigesterRssParser test.
  */
 public class DigesterRssParserTest {
-    public static final int ITEM_COUNT = 20;
+    private static final int ITEM_COUNT = 20;
+
     @Test
     public void testValidRss() throws Exception {
         final RssParser parser = new DigesterRssParser();
@@ -39,6 +41,12 @@ public class DigesterRssParserTest {
     }
 
     private String loadDataFromResource(final String resource) throws IOException {
-        return FileUtils.readFileToString(FileUtils.toFile(getClass().getResource(resource)));
+        final File file = FileUtils.toFile(getClass().getResource(resource));
+
+        if (file != null) {
+            return FileUtils.readFileToString(file);
+        }
+
+        return null;
     }
 }

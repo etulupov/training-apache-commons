@@ -13,7 +13,7 @@ import org.apache.commons.collections.Predicate;
 public class CommandPredicate implements Predicate {
     @Getter
     private Command command;
-    private String option;
+    private final String option;
 
     @Override
     public boolean evaluate(final Object object) {

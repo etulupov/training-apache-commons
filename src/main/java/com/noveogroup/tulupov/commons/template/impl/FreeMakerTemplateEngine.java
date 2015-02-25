@@ -5,7 +5,6 @@ import com.noveogroup.tulupov.commons.template.exception.TemplateEngineException
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
-import freemarker.template.Version;
 import org.apache.commons.io.Charsets;
 
 import java.io.Writer;
@@ -14,6 +13,7 @@ import java.util.Map;
 /**
  * FreeMaker template engine.
  */
+@SuppressWarnings("UnusedDeclaration")
 public class FreeMakerTemplateEngine implements TemplateEngine {
     private static final String TEMPLATE = "template/rss.ftl";
 

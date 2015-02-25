@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * Channel model.
  */
+@SuppressWarnings("UnusedDeclaration")
 @ObjectCreate(pattern = "rss/channel")
 public class RssChannel implements Comparable<RssChannel> {
     @Getter
@@ -38,6 +39,7 @@ public class RssChannel implements Comparable<RssChannel> {
     @BeanPropertySetter(pattern = "rss/channel/language")
     private String language;
 
+    @SuppressWarnings({"MismatchedQueryAndUpdateOfCollection", "CanBeFinal"})
     @Getter
     @Setter
     private List<Item> items = new ArrayList<Item>();
@@ -47,6 +49,7 @@ public class RssChannel implements Comparable<RssChannel> {
         this.items.add(item);
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(final RssChannel obj) {
         return CompareToBuilder.reflectionCompare(this, obj);

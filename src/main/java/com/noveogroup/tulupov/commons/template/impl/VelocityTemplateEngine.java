@@ -14,6 +14,7 @@ import java.util.Map;
 /**
  * Velocity template engine.
  */
+@SuppressWarnings("UnusedDeclaration")
 public class VelocityTemplateEngine implements TemplateEngine {
     private static final String RESOURCE_LOADER_CLASS = "classpath.resource.loader.class";
     private static final String RESOURCE_LOADER_CLASSPATH = "classpath";

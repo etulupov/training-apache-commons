@@ -9,6 +9,7 @@ import lombok.Getter;
 /**
  * Template engine type.
  */
+@SuppressWarnings("UnusedDeclaration")
 public enum TemplateEngineType {
     JEXL(JexlTemplateEngine.class),
     FREE_MARKER(FreeMakerTemplateEngine.class),
@@ -16,7 +17,7 @@ public enum TemplateEngineType {
     JELLY(JellyTemplateEngine.class);
 
     @Getter
-    private Class<? extends TemplateEngine> clazz;
+    private final Class<? extends TemplateEngine> clazz;
 
     private TemplateEngineType(final Class<? extends TemplateEngine> clazz) {
         this.clazz = clazz;

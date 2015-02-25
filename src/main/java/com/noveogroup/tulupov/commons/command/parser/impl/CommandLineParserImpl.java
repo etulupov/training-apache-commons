@@ -16,8 +16,8 @@ import java.util.List;
 public class CommandLineParserImpl implements Parser {
     private static final Log LOGGER = LogFactory.getLog(CommandLineParserImpl.class);
 
-    private Options options;
-    private List<CommandPredicate> predicates;
+    private final Options options;
+    private final List<CommandPredicate> predicates;
 
     public CommandLineParserImpl(final Options options, final List<CommandPredicate> predicates) {
         this.options = options;

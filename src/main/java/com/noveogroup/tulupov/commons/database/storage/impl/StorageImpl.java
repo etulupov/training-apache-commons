@@ -57,8 +57,7 @@ public class StorageImpl implements Storage {
         }
 
         try {
-            final List<String> lines = FileUtils.readLines(file);
-            return lines;
+            return FileUtils.readLines(file);
         } catch (Exception e) {
             throw new StorageException("Cannot load list of lines");
         }

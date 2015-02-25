@@ -14,6 +14,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * StorageImpl test.
  */
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class StorageImplTest {
     private static final String TEST_FILE = "test.db";
     private static final String TEST_STRING = "test_string";

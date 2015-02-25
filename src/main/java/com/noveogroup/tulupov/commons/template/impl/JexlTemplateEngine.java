@@ -9,12 +9,14 @@ import org.apache.commons.jexl2.Script;
 
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Jexl template engine.
  */
+@SuppressWarnings("UnusedDeclaration")
 public class JexlTemplateEngine implements TemplateEngine {
     private static final String TEMPLATE = "template/rss.jexl";
 
@@ -33,8 +35,13 @@ public class JexlTemplateEngine implements TemplateEngine {
         jexl.setFunctions(functions);
 
         try {
-            final Script script = jexl.createScript(getClass().getClassLoader().getResource(TEMPLATE));
-            script.execute(jexlContext);
+            final URL templateUrl = getClass().getClassLoader().getResource(TEMPLATE);
+            if (templateUrl != null) {
+                final Script script = jexl.createScript(templateUrl);
+                script.execute(jexlContext);
+            } else {
+                throw new TemplateEngineException("Cannot locate the template");
+            }
         } catch (Exception e) {
             throw new TemplateEngineException("Cannot generate page with Jexl", e);
         }
