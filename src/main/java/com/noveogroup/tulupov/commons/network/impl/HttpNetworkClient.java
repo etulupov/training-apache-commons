@@ -10,7 +10,6 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.StringWriter;
 
 /**
  * Http network client.
@@ -26,11 +25,8 @@ public class HttpNetworkClient implements NetworkClient {
 
             if (statusCode == HttpStatus.SC_OK) {
                 final BufferedInputStream inputStream = new BufferedInputStream(getMethod.getResponseBodyAsStream());
-                final StringWriter stringWriter = new StringWriter();
 
-                IOUtils.copy(inputStream, stringWriter, Charsets.UTF_8);
-
-                return stringWriter.toString();
+                return IOUtils.toString(inputStream, Charsets.UTF_8);
             } else {
                 throw new NetworkException("Bad status code=" + statusCode);
             }
