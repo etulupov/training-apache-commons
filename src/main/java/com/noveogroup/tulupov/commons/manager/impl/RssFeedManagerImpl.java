@@ -15,6 +15,7 @@ import com.noveogroup.tulupov.commons.parser.exception.RssParseException;
 import com.noveogroup.tulupov.commons.template.TemplateConstants;
 import com.noveogroup.tulupov.commons.template.TemplateEngine;
 import com.noveogroup.tulupov.commons.template.TemplateEngineFactory;
+import com.noveogroup.tulupov.commons.util.BeanUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -75,7 +76,12 @@ public class RssFeedManagerImpl implements FeedManager {
 
             final TemplateEngine templateEngine = TemplateEngineFactory.createEngine();
             final Map<String, Object> context = new HashMap<String, Object>();
-            context.put(TemplateConstants.RSS_CHANNEL, channel);
+
+            try {
+                context.put(TemplateConstants.RSS_CHANNEL, BeanUtils.escapeStringProperties(channel));
+            } catch (Exception e) {
+                LOGGER.error("Cannot escape strings from " + link, e);
+            }
 
             Writer writer = null;
             try {

@@ -1,9 +1,6 @@
 package com.noveogroup.tulupov.commons.template;
 
-import com.noveogroup.tulupov.commons.template.impl.FreeMakerTemplateEngine;
-import com.noveogroup.tulupov.commons.template.impl.JellyTemplateEngine;
-import com.noveogroup.tulupov.commons.template.impl.JexlTemplateEngine;
-import com.noveogroup.tulupov.commons.template.impl.VelocityTemplateEngine;
+import com.noveogroup.tulupov.commons.template.impl.*;
 import lombok.Getter;
 
 /**
@@ -14,7 +11,8 @@ public enum TemplateEngineType {
     JEXL(JexlTemplateEngine.class),
     FREE_MARKER(FreeMakerTemplateEngine.class),
     VELOCITY(VelocityTemplateEngine.class),
-    JELLY(JellyTemplateEngine.class);
+    JELLY(JellyTemplateEngine.class),
+    STR_SUBSTITUTOR(StrSubstitutorTemplateEngine.class);
 
     @Getter
     private final Class<? extends TemplateEngine> clazz;
